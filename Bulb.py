@@ -24,7 +24,7 @@ class Bulb:
         self.failure_chance = self.default_failure_chance
         print("Wymieniono żarówkę")
 
-    def chceck_state(self):
+    def check_state(self):
         if random.random() <= self.failure_chance and self.state == True:
             if random.random() <= 0.01:
                 self.state = False
