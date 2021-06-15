@@ -26,6 +26,7 @@ class Bulb:
         # the final cost of buying and exploitation
         self.cost = price
         self.lifespan = 0
+        self.x = 0
 
     def change_bulb(self):
         self.lifespan = 0
@@ -51,7 +52,7 @@ class Bulb:
             self.cost = self.cost + self.power * 0.001 * 0.61
 
             if self.min_lifespan <= self.lifespan < self.max_lifespan:
-                self.failure_chance += 0.0001
+                self.failure_chance += 0.001
             elif self.lifespan >= self.max_lifespan:
                 self.state = State.DOWN
 
