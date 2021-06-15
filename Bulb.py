@@ -26,7 +26,6 @@ class Bulb:
         # the final cost of buying and exploitation
         self.cost = price
         self.lifespan = 0
-        self.x = 0
 
     def change_bulb(self):
         self.lifespan = 0
@@ -35,6 +34,9 @@ class Bulb:
         self.failure_chance = self.default_failure_chance
         self.change_time_counter = 0
         print("Wymieniono żarówkę")
+
+    def print_bulb(self):
+        print(self.lifespan, self.failure_chance)
 
     def check_state(self):
         if random.random() <= self.failure_chance and self.state == State.UP:
