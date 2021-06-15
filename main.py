@@ -9,5 +9,4 @@ bulb1 = Bulb(84, 50000, 100000, 6, 0.000001)
 building = Building(bulb1, bulbs_per_floor, number_of_floors)
 
 #for i in range(100000):
-print(bulb1.failure_chance, random.random())
 
