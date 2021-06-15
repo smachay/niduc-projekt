@@ -13,13 +13,14 @@ class Bulb:
         self.power = power
         #state=True means that bulb is working
         self.state = True
+        self.network_failure = False
         #the final cost of buying and exploitation
-        self.cost = price;
+        self.cost = price
         self.lifespan = 0
 
     def change_bulb(self):
         self.lifespan = 0
-        self.cost+=(self.price + 10)
+        self.cost += self.price
         self.state = True
         self.failure_chance = self.default_failure_chance
         print("Wymieniono żarówkę")
@@ -28,6 +29,7 @@ class Bulb:
         if random.random() <= self.failure_chance and self.state == True:
             if random.random() <= 0.01:
                 self.state = False
+                self.network_failure = True
                 print("Nastąpiła awaria całej sieci:"+str(self.lifespan))
             else:
                 print("Żarówka się wypaliła:"+str(self.lifespan))

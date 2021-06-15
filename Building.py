@@ -20,8 +20,8 @@ class Building:
         return broken_bulbs
 
     def change_broken_bulbs(self):
-        broken_bulbs = self.get_broken_bulbs()
-        for bulb in self.bulbs:
-            if bulb in broken_bulbs:
-                bulb.change_bulb()
-                self.change_costs += bulb.cost
+        for floor in self.floors:
+            for bulb in floor:
+                if bulb.state is False:
+                    bulb.change_bulb()
+                    self.change_costs += bulb.cost
