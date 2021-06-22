@@ -10,6 +10,7 @@ class State(Enum):
 
 class Bulb:
     default_change_time = 2
+    bulbs_lifespan = []
 
     def __init__(self, price, min_lifespan, max_lifespan, power, default_failure_chance):
         self.price = price
@@ -28,24 +29,22 @@ class Bulb:
         self.lifespan = 0
 
     def change_bulb(self):
+        self.bulbs_lifespan.append(self.lifespan)
         self.lifespan = 0
         self.cost += self.price
         self.state = State.UP
         self.failure_chance = self.default_failure_chance
         self.change_time_counter = 0
-        print("Wymieniono żarówkę")
-
-    def print_bulb(self):
-        print(self.lifespan, self.failure_chance)
+        # print("Wymieniono żarówkę")
 
     def check_state(self):
         if random.random() <= self.failure_chance and self.state == State.UP:
             if random.random() <= 0.01:
                 self.state = State.DOWN
                 self.network_failure = True
-                print("Nastąpiła awaria całej sieci:"+str(self.lifespan))
+                # print("Nastąpiła awaria całej sieci:"+str(self.lifespan))
             else:
-                print("Żarówka się wypaliła:"+str(self.lifespan))
+                # print("Żarówka się wypaliła:"+str(self.lifespan))
                 self.state = State.DOWN
 
         elif self.state == State.UP:
@@ -62,7 +61,7 @@ class Bulb:
             self.state = State.BEING_CHANGED
 
         elif self.state == State.BEING_CHANGED:
-            print("Żarówka jest wymieniana")
+            # print("Żarówka jest wymieniana")
             self.change_time_counter += 1
             if self.change_time_counter == self.default_change_time:
                 self.change_bulb()
