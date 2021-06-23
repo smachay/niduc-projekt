@@ -13,9 +13,9 @@ class Floor:
         self.failure_cost = 0
 
         for i in range(number_of_bulbs):
-            self.bulbs.append(Bulb(75, 50000, 70000, 4.5, 0.000001))
+            #self.bulbs.append(Bulb(75, 50000, 70000, 4.5, 0.000001))
             #self.bulbs.append(Bulb(23, 15000, 25000, 6, 0.000005))
-            #self.bulbs.append(Bulb(50, 35000, 60000, 5, 0.000003))
+            self.bulbs.append(Bulb(50, 35000, 60000, 5, 0.000003))
 
     def check_bulbs_state(self):
         if self.network_failure is False:

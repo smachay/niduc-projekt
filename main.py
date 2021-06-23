@@ -18,7 +18,7 @@ for i in range(1000):
     building = Building(bulbs_per_floor, number_of_floors)
     price = 0
     lifespan_sum = 0
-    for j in range(50000):
+    for j in range(72000):
         for floor in building.floors:
             floor.check_bulbs_state()
 
@@ -30,7 +30,7 @@ for i in range(1000):
         lifespan_sum += t
 
     avg = lifespan_sum/len(Bulb.bulbs_lifespan)
-    file = open("test_75zl.txt", "a")
+    file = open("test_50zl.txt", "a")
     file.write(str(price) + " " + str(avg) + "\n")
 
     Bulb.bulbs_lifespan = []
